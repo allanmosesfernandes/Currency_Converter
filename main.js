@@ -9,6 +9,10 @@
 
 // fetch(`https://api.apilayer.com/exchangerates_data/latest?symbols={symbols}&base={base}`, requestOptions)
 //     .then(response => response.text())
+
+const fromOptions = document.querySelector('[name="from_currency"]');
+const toOptions = document.querySelector('[name="to_currency"]');
+
 const currencies = {
   USD: 'United States Dollar',
   AUD: 'Australian Dollar',
@@ -44,10 +48,17 @@ const currencies = {
   EUR: 'Euro',
 };
 
-function loadCurrencies(currencyObject) {
-    return Object.values(currencyObject);
+
+const generateOptions = (options) => {
+    return Object.entries(options).map((arr) => {
+        const [currencyCode, currencyName] = arr;
+        const optionsHTML = `<option value=${currencyCode}>${currencyCode} - ${currencyName}</option>`;
+        return optionsHTML;
+    }).join("")
 }
 
-const currList = loadCurrencies(currencies);
+const optionsHTML = generateOptions(currencies);
 
-console.log(currList)
+fromOptions.innerHTML = optionsHTML;
+toOptions.innerHTML = optionsHTML;
+
