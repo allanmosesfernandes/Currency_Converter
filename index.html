@@ -5,11 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Converter</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="base.css">
+    <!-- <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="base.css"> -->
+    <link rel="stylesheet" href="newStyles.css">
 </head>
 <body>
-    <div class="app">
+    <form id="currency__box">
+        <input type="number" name="from_amount" value="10" placeholder="$10">
+        <select name="from_currency">
+            <option>Select a Currency</option>
+        </select>
+        <input type="number" name="GBP_amount" placeholder="£">
+        <select name="to_currency">
+            <option selected>GBP</option>
+        </select>
+        <input type="number" name="INR_amount" placeholder="₹">
+        <select name="to_currency">
+            <option selected>INR</option>
+        </select>
+    </form>
+    <!-- <div class="app">
+       
         <form>
             <input type="number" name="from_amount">
             <select name="from_currency">
@@ -22,7 +38,7 @@
             <p>is</p>
             <p class="to_amount">$0</p>
         </form>
-    </div>
-    <script src="main.js" type="module"></script>
+    </div> -->
+    <script src="scripts.js" type="module"></script>
 </body>
 </html>
