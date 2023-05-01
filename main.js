@@ -1,15 +1,3 @@
-// const myHeaders = new Headers();
-// myHeaders.append("apikey", "EyBfpidfvZOVQORvq2KGxLKZ2JScMtmF")
-
-// const requestOptions = {
-//     method: 'GET',
-//     redirect: 'follow',
-//     headers: myHeaders
-// };
-
-// fetch(`https://api.apilayer.com/exchangerates_data/latest?symbols={symbols}&base={base}`, requestOptions)
-//     .then(response => response.text())
-
 const fromOptions = document.querySelector('[name="from_currency"]');
 const toOptions = document.querySelector('[name="to_currency"]');
 
@@ -48,7 +36,6 @@ const currencies = {
   EUR: 'Euro',
 };
 
-
 const generateOptions = (options) => {
     return Object.entries(options).map((arr) => {
         const [currencyCode, currencyName] = arr;
@@ -57,8 +44,26 @@ const generateOptions = (options) => {
     }).join("")
 }
 
-const optionsHTML = generateOptions(currencies);
+//Fetch Rates
+async function fetchRates(base = 'USD') {
+const myHeaders = new Headers();
+myHeaders.append("apikey", "EyBfpidfvZOVQORvq2KGxLKZ2JScMtmF")
 
+const requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+    headers: myHeaders
+};
+
+const response = await fetch(`https://api.apilayer.com/exchangerates_data/latest?base=${base}`, requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+  return response;
+}
+const optionsHTML = generateOptions(currencies);
+fetchRates();
 fromOptions.innerHTML = optionsHTML;
 toOptions.innerHTML = optionsHTML;
 
