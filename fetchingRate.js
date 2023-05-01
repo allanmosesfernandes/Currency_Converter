@@ -1,8 +1,7 @@
 //Fetch Rates
-async function fetchRates(base = 'USD') {
+export async function fetchRates(base = 'USD') {
     const myHeaders = new Headers();
     myHeaders.append("apikey", "EyBfpidfvZOVQORvq2KGxLKZ2JScMtmF")
-
     const requestOptions = {
         method: 'GET',
         redirect: 'follow',
