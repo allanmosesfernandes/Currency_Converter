@@ -1,8 +1,8 @@
 import { CURRENCIES, generateOptions } from "./currencies.js";
 const from_currency = document.querySelector('[name="from_currency"]');
 const gbp_currency = document.querySelector('[name="gbp_currency"]');
-
-
+const gbp_amount = document.querySelector('[name="GBP_amount"]')
+gbp_amount.value = "24"
 const form = document.querySelector('form');
 
 const BASE_RATE = {};
