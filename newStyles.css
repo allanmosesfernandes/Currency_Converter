@@ -12,7 +12,7 @@
 body {
     overflow: hidden;
     font-family: 'Work Sans', sans-serif;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,6 +32,16 @@ html {
 img {
     display: block;
     max-width: 100%;
+}
+.loader-overlay {
+display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* This sets the overlay color to black with 50% opacity */
+  z-index: 9999; /* This ensures the overlay is displayed on top of all other elements */
 }
 
 form {
@@ -99,7 +109,7 @@ display: none;
 .loader div {
   width: 8%;
   height: 24%;
-  background: rgb(128, 128, 128);
+  background: rgb(149, 147, 147);
   position: absolute;
   left: 50%;
   top: 30%;
