@@ -31,7 +31,11 @@ from_currency.innerHTML = options;
 } 
 
 async function getBaseRate(from, to, amount) {
-console.log(amount)
+
+  // show loader
+  const loader = document.querySelector('.loader');
+   loader.style.display = 'block';
+
     if(!BASE_RATE[from_currency.value]) {
         const rates =  await fetchRates(from);
         BASE_RATE[from] = rates;
@@ -47,6 +51,10 @@ console.log(amount)
     console.log(`the ${from} to ${to} is ${convertedAmount}`);
     gbp_amount_input.value = convertedAmount;
     INR_amount.value = convertedAmountINR;
+
+    // hide loader
+     loader.style.display = 'none';
+
     return convertedAmount;
 }
    
