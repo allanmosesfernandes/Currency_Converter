@@ -4,6 +4,8 @@ const gbp_currency = document.querySelector('[name="gbp_currency"]');
 
 const from_amount = document.querySelector('[name="from_amount"]');
 let gbp_amount_input = document.querySelector('[name="GBP_amount"]');
+
+const INR_amount = document.querySelector('[name="INR_amount"]');
 const form = document.querySelector('form');
 const BASE_RATE = {};
 // step 1 load base currency with options  
@@ -28,24 +30,25 @@ from_currency.innerHTML = options;
     return response;
 } 
 
-async function getBaseRate(from, to, amount) {
-console.log(amount)
-    if(!BASE_RATE[from_currency.value]) {
-        const rates =  await fetchRates(from);
-        BASE_RATE[from] = rates;
-        console.log(BASE_RATE)
-    }
+// async function getBaseRate(from, to, amount) {
+// console.log(amount)
+//     if(!BASE_RATE[from_currency.value]) {
+//         const rates =  await fetchRates(from);
+//         BASE_RATE[from] = rates;
+//         console.log(BASE_RATE)
+//     }
 
-    //converting amount
-    const rate = BASE_RATE[from].rates[to];
-    console.log(amount);
-    const convertedAmount = (amount * rate).toFixed(2);
-    
-    console.log(`the ${from} to ${to} is ${convertedAmount}`);
-    gbp_amount_input.value = convertedAmount;
-
-    return convertedAmount;
-}
+//     //converting amount
+//     const rate = BASE_RATE[from].rates[to];
+//     const INRrate = BASE_RATE[from].rates['INR'];
+//     const convertedAmount = (amount * rate).toFixed(2);
+//     const convertedAmountINR = (amount * INRrate).toFixed(2);
+//     console.log(convertedAmountINR);
+//     console.log(`the ${from} to ${to} is ${convertedAmount}`);
+//     gbp_amount_input.value = convertedAmount;
+//     INR_amount.value = convertedAmountINR;
+//     return convertedAmount;
+// }
    
 form.addEventListener('input', () => {
 
