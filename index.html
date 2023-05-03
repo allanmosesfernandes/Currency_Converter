@@ -8,23 +8,40 @@
     <!-- <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="base.css"> -->
     <link rel="stylesheet" href="newStyles.css">
+    
 </head>
 <body>
     <form id="currency__box">
-        <input type="number" name="from_amount" placeholder="$10">
-        <select name="from_currency">
-            <option>Select a Currency</option>
-        </select>
+        <h2>Currency Converter</h2>
+        <div class="input__wrapper">
+            <input type="number" name="from_amount" placeholder="$">
+            <span class="country_flag">
+                <img src="./assets/us.png" alt="flag of USA" />
+            </span>
+            <select name="from_currency">
+                <option>Select a Currency</option>
+            </select>
+        </div>
 
-        <input type="number" name="GBP_amount" placeholder="£">
-        <select name="gbp_currency">
-            <option selected>GBP</option>
-        </select>
+        <div class="input__wrapper">
+            <input type="number" name="GBP_amount" placeholder="£">
+                <span class="country_flag">
+                    <img src="./assets/uk.png" alt="flag of USA" />
+                </span>
+            <select name="gbp_currency">
+                <option selected>GBP</option>
+            </select>
+        </div>
 
-        <input type="number" name="INR_amount" placeholder="₹">
-        <select name="inr_currency">
-            <option selected>INR</option>
-        </select>
+        <div class="input__wrapper">
+            <input type="number" name="INR_amount" placeholder="₹">
+                <span class="country_flag">
+                    <img src="./assets/india.png" alt="flag of USA" />
+                </span>
+            <select name="inr_currency">
+                <option selected>INR</option>
+            </select>
+        </div>
 
     </form>
 
