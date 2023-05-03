@@ -1,9 +1,8 @@
 import { CURRENCIES, generateOptions } from "./currencies.js";
 const from_currency = document.querySelector('[name="from_currency"]');
 const gbp_currency = document.querySelector('[name="gbp_currency"]');
-const from_amount = document.querySelector('[name="from_amount"]').value;
-const gbp_amount = document.querySelector('[name="GBP_amount"]').value;
-gbp_amount.value = "24"
+const from_amount = document.querySelector('[name="from_amount"]');
+let gbp_amount_input = document.querySelector('[name="GBP_amount"]');
 const form = document.querySelector('form');
 const BASE_RATE = {};
 // step 1 load base currency with options  
@@ -29,7 +28,7 @@ from_currency.innerHTML = options;
 } 
 
 async function getBaseRate(from, to, amount) {
-
+console.log(amount)
     if(!BASE_RATE[from_currency.value]) {
         const rates =  await fetchRates(from);
         BASE_RATE[from] = rates;
@@ -38,14 +37,17 @@ async function getBaseRate(from, to, amount) {
 
     //converting amount
     const rate = BASE_RATE[from].rates[to];
-    console.log(amount)
+    console.log(amount);
     const convertedAmount = (amount * rate).toFixed(2);
     
-    console.log(`the ${from} to ${to} is ${convertedAmount}`)
+    console.log(`the ${from} to ${to} is ${convertedAmount}`);
+    gbp_amount_input.value = convertedAmount;
+
     return convertedAmount;
 }
    
 form.addEventListener('input', () => {
-const total = getBaseRate(from_currency.value,gbp_currency.value, from_amount );
+
+const total = getBaseRate(from_currency.value,gbp_currency.value, from_amount.value );
     
 })
