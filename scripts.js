@@ -1,6 +1,7 @@
 import { CURRENCIES, generateOptions } from "./currencies.js";
 const from_currency = document.querySelector('[name="from_currency"]');
 const gbp_currency = document.querySelector('[name="gbp_currency"]');
+
 const from_amount = document.querySelector('[name="from_amount"]');
 let gbp_amount_input = document.querySelector('[name="GBP_amount"]');
 const form = document.querySelector('form');
