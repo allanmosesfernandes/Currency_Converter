@@ -30,25 +30,25 @@ from_currency.innerHTML = options;
     return response;
 } 
 
-// async function getBaseRate(from, to, amount) {
-// console.log(amount)
-//     if(!BASE_RATE[from_currency.value]) {
-//         const rates =  await fetchRates(from);
-//         BASE_RATE[from] = rates;
-//         console.log(BASE_RATE)
-//     }
+async function getBaseRate(from, to, amount) {
+console.log(amount)
+    if(!BASE_RATE[from_currency.value]) {
+        const rates =  await fetchRates(from);
+        BASE_RATE[from] = rates;
+        console.log(BASE_RATE)
+    }
 
-//     //converting amount
-//     const rate = BASE_RATE[from].rates[to];
-//     const INRrate = BASE_RATE[from].rates['INR'];
-//     const convertedAmount = (amount * rate).toFixed(2);
-//     const convertedAmountINR = (amount * INRrate).toFixed(2);
-//     console.log(convertedAmountINR);
-//     console.log(`the ${from} to ${to} is ${convertedAmount}`);
-//     gbp_amount_input.value = convertedAmount;
-//     INR_amount.value = convertedAmountINR;
-//     return convertedAmount;
-// }
+    //converting amount
+    const rate = BASE_RATE[from].rates[to];
+    const INRrate = BASE_RATE[from].rates['INR'];
+    const convertedAmount = (amount * rate).toFixed(2);
+    const convertedAmountINR = (amount * INRrate).toFixed(2);
+    console.log(convertedAmountINR);
+    console.log(`the ${from} to ${to} is ${convertedAmount}`);
+    gbp_amount_input.value = convertedAmount;
+    INR_amount.value = convertedAmountINR;
+    return convertedAmount;
+}
    
 form.addEventListener('input', () => {
 

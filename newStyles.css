@@ -1,4 +1,5 @@
 
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
 
 
 *,
@@ -9,6 +10,8 @@
 }
 
 body {
+    overflow: hidden;
+    font-family: 'Work Sans', sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -32,7 +35,7 @@ img {
 }
 
 form {
-    max-width: 50%;
+    min-width: 700px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -47,6 +50,9 @@ input {
     width: 100%;
     position: relative;
     padding: 10px;
+    font-family: 'Work Sans', sans-serif;
+    color: black;
+    font-weight: bold;
 }
 
 select {
@@ -76,5 +82,6 @@ select {
 @media only screen and (max-width: 800px) {
   form {
     max-width: 90%;
+    min-width: 0;
   }
 }
