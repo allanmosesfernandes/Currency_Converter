@@ -61,8 +61,15 @@ async function getBaseRate(from, to, amount) {
     return convertedAmount;
 }
    
-form.addEventListener('input', () => {
-
+form.addEventListener('input', (event) => {
+  const inputValue = event.target.value;
+  const sanitizedValue = inputValue.replace(/[^0-9.]/g, '');
+  
+  if (inputValue !== sanitizedValue) {
+    alert("Please enter numbers only.");
+  }
+  
+  event.target.value = sanitizedValue;
 const total = getBaseRate(from_currency.value,gbp_currency.value, from_amount.value );
     
 })

@@ -94,6 +94,8 @@ select {
   gap: 1rem;
   width: 100%;
   position: relative;
+  margin-bottom: 1rem;
+
 
 }
 
@@ -117,6 +119,9 @@ select {
   align-items: center;
   z-index: 11;
   display: none;
+      left: 50%;
+    transform: translate(50%, -50%);
+    top: 50% 
 }
 
 .loader div {
