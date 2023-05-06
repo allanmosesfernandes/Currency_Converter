@@ -17,7 +17,7 @@ body {
   font-family: 'Epilogue', sans-serif;
   display: flex;
   background-color: #000;
-
+  flex-direction: column;
 }
 
 html {
@@ -58,12 +58,12 @@ form {
 }
 
 .title {
-  background: #121FCF;
-  background: linear-gradient(to right, #121FCF 0%, #CFCFCF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-weight: 400;
   font-size: 2.5rem;
+
+          /** TEXT GRADIENT */ color: #673ab7; background-image: -webkit-linear-gradient(0deg, #673ab7 26%, #9c27b0 41%, #daf0ec 100%); background-clip: text; -webkit-background-clip: text; text-fill-color: transparent; -webkit-text-fill-color: transparent;
+          
+        
 }
 
 input {
@@ -97,8 +97,6 @@ select {
 
 }
 
-
-
 .country_flag {
   position: absolute;
   right: 33.33%;
@@ -109,12 +107,7 @@ select {
   height: 40px;
 }
 
-@media only screen and (max-width: 800px) {
-  form {
-    max-width: 90%;
-    min-width: 0;
-  }
-}
+
 
 .loader {
   position: absolute;
@@ -207,4 +200,25 @@ select {
 .loader .bar12 {
   transform: rotate(330deg) translate(0, -130%);
   animation-delay: -0.1s;
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    margin-top: 5rem;
+    font-size: 2rem;
+  }
+  .country_flag {
+    margin-right: 5px;
+  }
+  .country_flag img {
+    padding: 5px !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  form {
+    max-width: 95%;
+    min-width: 0;
+    padding: 30px 20px;
+  }
 }

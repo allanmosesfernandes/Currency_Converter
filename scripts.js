@@ -1,7 +1,7 @@
 import { CURRENCIES, generateOptions } from "./currencies.js";
 const from_currency = document.querySelector('[name="from_currency"]');
 const gbp_currency = document.querySelector('[name="gbp_currency"]');
-
+const usa_currency = document.querySelector('[name="USD_amount"]');
 const from_amount = document.querySelector('[name="from_amount"]');
 let gbp_amount_input = document.querySelector('[name="GBP_amount"]');
 
@@ -11,7 +11,6 @@ const BASE_RATE = {};
 // step 1 load base currency with options  
 const options = generateOptions(CURRENCIES);
 from_currency.innerHTML = options;
-
 
     async function fetchRates(base = 'USD') {
     const myHeaders = new Headers();
@@ -25,7 +24,7 @@ from_currency.innerHTML = options;
     const response = await fetch(`https://api.apilayer.com/exchangerates_data/latest?base=${base}`, requestOptions)
         .then(response => response.json())
         .then(result => result)
-        .catch(error => console.log('error', error));
+        .catch(error => ('error', error));
     
     return response;
 } 
@@ -39,19 +38,23 @@ async function getBaseRate(from, to, amount) {
     if(!BASE_RATE[from_currency.value]) {
         const rates =  await fetchRates(from);
         BASE_RATE[from] = rates;
-        console.log(BASE_RATE)
+        (BASE_RATE)
     }
 
     //converting amount
     const rate = BASE_RATE[from].rates[to];
     const INRrate = BASE_RATE[from].rates['INR'];
-    const convertedAmount = (amount * rate).toFixed(2);
-    const convertedAmountINR = (amount * INRrate).toFixed(2);
-    console.log(convertedAmountINR);
-    console.log(`the ${from} to ${to} is ${convertedAmount}`);
-    gbp_amount_input.value = convertedAmount;
-    INR_amount.value = convertedAmountINR;
+    const USARate = BASE_RATE[from].rates['USD'];
 
+    const convertedAmount = ((amount * rate).toFixed(2));
+    (convertedAmount);
+    const convertedAmountINR = (amount * INRrate).toFixed(2);
+    const convertedAmountUSD = (amount * USARate).toFixed(2);
+    (convertedAmountINR);
+    (`the ${from} to ${to} is ${convertedAmount}`);
+    gbp_amount_input.value = `${convertedAmount} £`;
+    INR_amount.value = `${convertedAmountINR} ₹`;
+    usa_currency.value = `${convertedAmountUSD} $`;
     // hide loader
      loader.style.display = 'none';
 
