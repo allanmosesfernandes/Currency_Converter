@@ -1,0 +1,5 @@
+1. Change UI to Black & Purple
+2. Store API in local storage
+3. Add form field for USD
+4. Allow decimals
+5. Add GA tracking

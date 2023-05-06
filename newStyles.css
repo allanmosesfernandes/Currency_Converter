@@ -1,91 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400&display=swap');
 
-  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+:root {
+  --body-bg-primary: #000;
+  --white: #ffffff;
+}
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    border: none;
+  box-sizing: border-box;
+  border: none;
 }
 
 body {
-    overflow: hidden;
-    font-family: 'Work Sans', sans-serif;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FF7700;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
+  overflow: hidden;
+  font-family: 'Epilogue', sans-serif;
+  display: flex;
+  background-color: #000;
+
 }
 
 html {
-    -webkit-text-size-adjust: none;
-    /* for iOS Safari */
-    text-size-adjust: none;
-    /* for other mobile browsers */
+  -webkit-text-size-adjust: none;
+  /* for iOS Safari */
+  text-size-adjust: none;
+  /* for other mobile browsers */
 }
 
 img {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
+
 .loader-overlay {
-display: none;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* This sets the overlay color to black with 50% opacity */
-  z-index: 9999; /* This ensures the overlay is displayed on top of all other elements */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* This sets the overlay color to black with 50% opacity */
+  z-index: 9999;
+  /* This ensures the overlay is displayed on top of all other elements */
 }
 
 form {
-    min-width: 700px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    z-index: 1;
+  min-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+  background: linear-gradient(220.55deg, #DEB5FF 0%, #6F00B3 100%);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.title {
+  background: #121FCF;
+  background: linear-gradient(to right, #121FCF 0%, #CFCFCF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 400;
+  font-size: 2.5rem;
 }
 
 input {
-    height: 40px;
-    border-radius: 2px;
-    width: 100%;
-    position: relative;
-    padding: 10px;
-    font-family: 'Work Sans', sans-serif;
-    color: black;
-    font-weight: bold;
+  height: 40px;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+  padding: 10px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 300;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 select {
-    width: 40%;
-    
+  width: 40%;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+
 }
+
 .input__wrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    width: 100%;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
 
 }
 
 
 
 .country_flag {
-    position: absolute;
-    right: 33.33%;
+  position: absolute;
+  right: 33.33%;
 }
-.country_flag img{
-    width: 40px;
-    height: 40px;
+
+.country_flag img {
+  width: 40px;
+  height: 40px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -102,7 +123,7 @@ select {
   border-radius: 10px;
   align-items: center;
   z-index: 11;
-display: none;
+  display: none;
 }
 
 .loader div {
@@ -114,7 +135,7 @@ display: none;
   top: 30%;
   opacity: 0;
   border-radius: 50px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   animation: fade458 1s linear infinite;
 }
 
