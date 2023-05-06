@@ -35,6 +35,7 @@ export const CURRENCIES = {
 
 export const generateOptions = (options) => {
     return Object.entries(options).map(([currencyCode, currencyName]) => {
-        return `<option value=${currencyCode}>${currencyCode} - ${currencyName}<option>`
-    }).join('')
+      console.log(`${currencyCode}${currencyName}`);
+        return `<option value=${currencyCode}>${currencyCode} - ${currencyName}</option>`
+    }).join("")
 }

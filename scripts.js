@@ -8,6 +8,7 @@ let gbp_amount_input = document.querySelector('[name="GBP_amount"]');
 const INR_amount = document.querySelector('[name="INR_amount"]');
 const form = document.querySelector('form');
 const BASE_RATE = {};
+const errorMessage = document.querySelector(".error__message");
 // step 1 load base currency with options  
 const options = generateOptions(CURRENCIES);
 from_currency.innerHTML = options;
@@ -38,7 +39,6 @@ async function getBaseRate(from, to, amount) {
     if(!BASE_RATE[from_currency.value]) {
         const rates =  await fetchRates(from);
         BASE_RATE[from] = rates;
-        (BASE_RATE)
     }
 
     //converting amount
@@ -63,13 +63,17 @@ async function getBaseRate(from, to, amount) {
    
 form.addEventListener('input', (event) => {
   const inputValue = event.target.value;
-  const sanitizedValue = inputValue.replace(/[^0-9.]/g, '');
+   const sanitizedValue = inputValue.replace(/[^0-9.]/g, '');
+//   console.log(from_currency.value);
+   if (inputValue !== sanitizedValue) {
+     errorMessage.style.opacity = '1';
+   }
+   else {
+     errorMessage.style.opacity = '0';
+     const total = getBaseRate(from_currency.value,gbp_currency.value, from_amount.value );
+
+   }
   
-  if (inputValue !== sanitizedValue) {
-    alert("Please enter numbers only.");
-  }
-  
-  event.target.value = sanitizedValue;
-const total = getBaseRate(from_currency.value,gbp_currency.value, from_amount.value );
+//   event.target.value = sanitizedValue;
     
 })
